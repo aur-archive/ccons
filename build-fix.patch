@@ -1,0 +1,12 @@
+diff -u ccons/CMakeLists.txt ccons-patched/CMakeLists.txt
+--- ccons/CMakeLists.txt	2012-10-23 12:51:40.569365207 -0600
++++ ccons-patched/CMakeLists.txt	2012-10-23 13:10:20.528638251 -0600
+@@ -14,7 +14,8 @@
+ exec_program(${LLVM_CONFIG_EXECUTABLE} ARGS --includedir OUTPUT_VARIABLE LLVM_INCLUDE_DIR)
+ exec_program(${LLVM_CONFIG_EXECUTABLE} ARGS --cflags OUTPUT_VARIABLE LLVM_C_FLAGS)
+ exec_program(${LLVM_CONFIG_EXECUTABLE} ARGS --cxxflags OUTPUT_VARIABLE LLVM_CXX_FLAGS)
+-set(CLANG_LIBS "-lclangFrontend -lclangAST -lclangLex -lclangCodeGen -lclangSema -lclangSerialization -lclangParse -lclangAST -lclangBasic -lclangAnalysis -lclangEdit")
++set(CLANG_LIBS "-L../../Debug+Asserts/lib -lclangFrontendTool -lclangFrontend -lclangDriver -lclangSerialization -lclangCodeGen -lclangParse -lclangSema -lclangEdit -lclangStaticAnalyzerFrontend -lclangStaticAnalyzerCheckers -lclangStaticAnalyzerCore -lclangAnalysis -lclangARCMigrate -lclangAST -lclangLex -lclangBasic")
++
+ 
+ Project(ccons)
